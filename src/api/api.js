@@ -1,6 +1,5 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const router = express.Router();
 const app = express();
 
 const Deck = require("./Deck.js");
@@ -19,6 +18,7 @@ app.post("/cards", (req, res) => {
     var newCards = [];
     var deckType = req.body.deck || "standard";
     var deck = getDeckFromType(deckType);
+    var card;
     while (newCards.length < numCardsToDraw) {
         //use rejection sampling to draw cards
         card = deck.drawCard();
