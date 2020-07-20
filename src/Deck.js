@@ -17,6 +17,10 @@ module.exports = class Deck {
         return card
     }
 
+    reset() {
+        this.cardIdsDrawn.clear();
+    }
+
     static cardFromId(cardId) {
         return {
             suit: this.suits[Math.floor(cardId / this.ranks.length)],
