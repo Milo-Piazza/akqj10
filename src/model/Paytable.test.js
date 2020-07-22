@@ -123,16 +123,16 @@ test("Test payout calculations", () => {
     const onePair = getHandFromString("J293J");
     const lowPair = getHandFromString("98946");
     const junk = getHandFromString("AK678");
-    expect(paytable.getPayForHand(royalFlush, 5)).toBe(4000);
-    expect(paytable.getPayForHand(royalFlush, 3)).toBe(750);
-    expect(paytable.getPayForHand(straightFlush, 5)).toBe(250);
-    expect(paytable.getPayForHand(four, 5)).toBe(125);
-    expect(paytable.getPayForHand(fullHouse, 5)).toBe(45);
-    expect(paytable.getPayForHand(flush, 5)).toBe(30);
-    expect(paytable.getPayForHand(straight, 5)).toBe(20);
-    expect(paytable.getPayForHand(three, 5)).toBe(15);
-    expect(paytable.getPayForHand(twoPair, 5)).toBe(10);
-    expect(paytable.getPayForHand(onePair, 5)).toBe(5);
-    expect(paytable.getPayForHand(lowPair, 5)).toBe(0);
-    expect(paytable.getPayForHand(junk, 5)).toBe(0);
+    expect(paytable.evaluateHand(royalFlush, 5).pays).toBe(4000);
+    expect(paytable.evaluateHand(royalFlush, 3).pays).toBe(750);
+    expect(paytable.evaluateHand(straightFlush, 5).pays).toBe(250);
+    expect(paytable.evaluateHand(four, 5).pays).toBe(125);
+    expect(paytable.evaluateHand(fullHouse, 5).pays).toBe(45);
+    expect(paytable.evaluateHand(flush, 5).pays).toBe(30);
+    expect(paytable.evaluateHand(straight, 5).pays).toBe(20);
+    expect(paytable.evaluateHand(three, 5).pays).toBe(15);
+    expect(paytable.evaluateHand(twoPair, 5).pays).toBe(10);
+    expect(paytable.evaluateHand(onePair, 5).pays).toBe(5);
+    expect(paytable.evaluateHand(lowPair, 5).pays).toBe(0);
+    expect(paytable.evaluateHand(junk, 5).pays).toBe(0);
 })

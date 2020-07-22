@@ -67,13 +67,19 @@ module.exports = class Paytable {
         ]
     }
 
-    getPayForHand(hand, bet) {
+    evaluateHand(hand, bet) {
         for (let handType of this.hands) {
             if (handType.condition(hand)) {
-                return handType.pays(bet);
+                return {
+                    name: handType.name,
+                    pays: handType.pays(bet)
+                };
             }
         }
-        return 0;
+        return {
+            name: "Nothing",
+            pays: 0
+        };
     }
 
     isRoyalFlush(hand) {
