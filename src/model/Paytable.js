@@ -22,47 +22,47 @@ module.exports = class Paytable {
             {
                 pays: (bet) => bet === 5 ? bet * 800 : bet * 250,
                 name: "Royal Flush",
-                condition: this.isRoyalFlush
+                condition: this.isRoyalFlush.bind(this)
             },
             {
                 pays: (bet) => bet * 50,
                 name: "Straight Flush",
-                condition: this.isStraightFlush
+                condition: this.isStraightFlush.bind(this)
             },
             {
                 pays: (bet) => bet * 25,
                 name: "Four of a Kind",
-                condition: this.isFourOfAKind
+                condition: this.isFourOfAKind.bind(this)
             },
             {
                 pays: (bet) => bet * 9,
                 name: "Full House",
-                condition: this.isFullHouse
+                condition: this.isFullHouse.bind(this)
             },
             {
                 pays: (bet) => bet * 6,
                 name: "Flush",
-                condition: this.isFlush
+                condition: this.isFlush.bind(this)
             },
             {
                 pays: (bet) => bet * 4,
                 name: "Straight",
-                condition: this.isStraight
+                condition: this.isStraight.bind(this)
             },
             {
                 pays: (bet) => bet * 3,
                 name: "Three of a Kind",
-                condition: this.isThreeOfAKind
+                condition: this.isThreeOfAKind.bind(this)
             },
             {
                 pays: (bet) => bet * 2,
                 name: "Two Pair",
-                condition: this.isTwoPair
+                condition: this.isTwoPair.bind(this)
             },
             {
                 pays: (bet) => bet * 1,
                 name: "Jacks or Better",
-                condition: this.isJacksOrBetter
+                condition: this.isJacksOrBetter.bind(this)
             },
         ]
     }

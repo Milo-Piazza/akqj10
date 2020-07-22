@@ -110,3 +110,29 @@ test("Test royal flushes", () => {
     expect(paytable.isRoyalFlush(straightFlush)).toBeFalsy();
     expect(paytable.isRoyalFlush(broadway)).toBeFalsy();
 })
+
+test("Test payout calculations", () => {
+    const royalFlush = getSuitedHandFromString("JAKTQ");
+    const straightFlush = getSuitedHandFromString("A2345");
+    const four = getHandFromString("99699");
+    const fullHouse = getHandFromString("K66KK");
+    const flush = getSuitedHandFromString("369QA");
+    const straight = getHandFromString("J89TQ");
+    const three = getHandFromString("54443");
+    const twoPair = getHandFromString("67678");
+    const onePair = getHandFromString("J293J");
+    const lowPair = getHandFromString("98946");
+    const junk = getHandFromString("AK678");
+    expect(paytable.getPayForHand(royalFlush, 5)).toBe(4000);
+    expect(paytable.getPayForHand(royalFlush, 3)).toBe(750);
+    expect(paytable.getPayForHand(straightFlush, 5)).toBe(250);
+    expect(paytable.getPayForHand(four, 5)).toBe(125);
+    expect(paytable.getPayForHand(fullHouse, 5)).toBe(45);
+    expect(paytable.getPayForHand(flush, 5)).toBe(30);
+    expect(paytable.getPayForHand(straight, 5)).toBe(20);
+    expect(paytable.getPayForHand(three, 5)).toBe(15);
+    expect(paytable.getPayForHand(twoPair, 5)).toBe(10);
+    expect(paytable.getPayForHand(onePair, 5)).toBe(5);
+    expect(paytable.getPayForHand(lowPair, 5)).toBe(0);
+    expect(paytable.getPayForHand(junk, 5)).toBe(0);
+})
