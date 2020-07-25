@@ -22,11 +22,17 @@
     padding-right: 8%;
 }
 
+.chipCounter {
+    color: yellow;
+}
+
 .pokerGame {
-    padding: 16px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
+    background-color: blue;
 }
 
 .gameItem {

@@ -74,8 +74,8 @@ class PokerGame extends Component {
             this.setState({
                 bet: 5
             })
+            this.handleDeal();
         }
-        this.handleDeal();
     }
 
     updateHand(newCards) {
@@ -119,11 +119,11 @@ class PokerGame extends Component {
                 ))}
             </div>
             <div className="buttons gameItem">
-                <button onClick={() => (this.state.gameState === "DEAL" ? this.handleDeal() : this.handleDraw())}>{this.state.gameState}</button>
                 <button onClick={this.handleBetOne}>BET ONE</button>
                 <button onClick={this.handleBetMax}>BET MAX</button>
+                <button onClick={() => (this.state.gameState === "DEAL" ? this.handleDeal() : this.handleDraw())}>{this.state.gameState}</button>
             </div>
-            <p>Chips: {this.state.chips} Bet: {this.state.bet}</p>
+            <p className="chipCounter">Chips: {this.state.chips} Bet: {this.state.bet}</p>
         </div>;
     }
 }

@@ -1,9 +1,17 @@
 .paytable {
-    background-color: blue;
-    color: white;
+    background-color: #020777;
+    color: yellow;
+    border: 1px solid;
+    border-color: yellow;
+    width: 72%;
+    border-collapse: collapse;
+}
+
+td, th {
+    border-right: 1px solid;
 }
 
 .winning-hand {
     background-color: green;
-    color: yellow;
+    color: white;
 }
