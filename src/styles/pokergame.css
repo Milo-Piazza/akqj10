@@ -1,0 +1,34 @@
+.cards {
+    padding-left: 18%;
+    padding-right: 18%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.cards img {
+    width: 18%;
+    height: auto;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.holdButton {
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.pokerGame {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameItem {
+    padding-top: 16px;
+}
