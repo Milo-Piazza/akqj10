@@ -14,6 +14,7 @@ module.exports = class Deck {
             cardId = Math.floor(Math.random() * this.cardCount);
         }
         var card = this.constructor.cardFromId(cardId);
+        this.cardIdsDrawn.add(cardId);
         return card
     }
 
