@@ -5,7 +5,6 @@ import PaytableView from './PaytableView';
 import "../styles/pokergame.css";
 
 var cardImages = require.context("../../public/cards/", true);
-console.log(cardImages);
 
 class PokerGame extends Component {
 
@@ -100,30 +99,29 @@ class PokerGame extends Component {
         return card.rank.toString() + card.suit[0];
     }
 
-    getCardImages() {
+    getCardImage(i) {
         if (this.state.cards.length === 0) {
-            return [0,1,2,3,4].map((i) => <img className="card" key={"card" + i.toString()} src={cardImages("./red_back.png")}></img>)
+            return <img className="card" key={"card" + i.toString()} src={cardImages("./red_back.png")}></img>
         }
-        return this.state.cards.map((card, i) => <img onClick={() => this.handleHoldChange(i)} className="card" key={"card" + i.toString()} src={cardImages("./" + this.getCardImageCode(card) + ".png")}></img>)
+        var card = this.state.cards[i];
+        return <img onClick={() => this.handleHoldChange(i)} className="card" key={"card" + i.toString()} src={cardImages("./" + this.getCardImageCode(card) + ".png")}></img>
     }
 
     render() { 
         return <div className="pokerGame">
             <PaytableView className="paytable gameItem" hand={this.state.hand} paytable={this.constructor.paytable}></PaytableView>
-            <div className="cards gameItem">
-                {this.getCardImages()}
+            <div className="cards">
+                {[0,1,2,3,4].map((i) =><div className="cardAndHold gameItem">
+                    {this.getCardImage(i)}
+                    <button className={this.state.held[i] ? "heldButton" : "holdButton"} key={"button" + i.toString()} onClick={() => this.handleHoldChange(i)}>{this.state.held[i] ? "HELD" : "HOLD"}</button>
+                </div>)}
             </div>
-            <div className="buttons gameItem">
-                {[0,1,2,3,4].map((index) => (
-                    <button className="holdButton" key={"button" + index.toString()} onClick={() => this.handleHoldChange(index)}>{this.state.held[index] ? "HELD" : "HOLD"}</button>
-                ))}
+            <div className="betButtons gameItem">
+                <p className="chipCounter">Chips: {this.state.chips} Bet: {this.state.bet}</p>
+                <button className="betButton" onClick={this.handleBetOne}>BET ONE</button>
+                <button className="betButton" onClick={this.handleBetMax}>BET MAX</button>
+                <button className="betButton" onClick={() => (this.state.gameState === "DEAL" ? this.handleDeal() : this.handleDraw())}>{this.state.gameState}</button>
             </div>
-            <div className="buttons gameItem">
-                <button onClick={this.handleBetOne}>BET ONE</button>
-                <button onClick={this.handleBetMax}>BET MAX</button>
-                <button onClick={() => (this.state.gameState === "DEAL" ? this.handleDeal() : this.handleDraw())}>{this.state.gameState}</button>
-            </div>
-            <p className="chipCounter">Chips: {this.state.chips} Bet: {this.state.bet}</p>
         </div>;
     }
 }

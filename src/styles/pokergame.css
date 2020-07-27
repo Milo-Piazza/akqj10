@@ -1,29 +1,84 @@
+.cardAndHold {
+    display: flex;
+    flex-direction: column;
+    padding-right: 8px;
+    padding-left: 8px;
+    align-items: center;
+}
+
+.cardAndHold img {
+    width: 90%;
+    height: auto;
+    padding-bottom: 10%;
+    transition: transform .25s;
+}
+
+.cardAndHold img:hover {
+    transform: scale(1.1);
+}
+
 .cards {
-    padding-left: 18%;
-    padding-right: 18%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.cards img {
-    width: 18%;
-    height: auto;
-}
-
-.buttons {
+.betButtons {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
+    width: 100vw;
+    margin-right: 23%;
+}
+
+button {
+    transition: transform .25s;
+    outline: none;
+}
+
+button:hover {
+    transform: scale(1.1);
 }
 
 .holdButton {
-    padding-left: 8%;
-    padding-right: 8%;
+    border-style: none;
+    border-radius: 5px;
+    padding: 5% 25%;
+    background-color: yellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.heldButton {
+    border-style: none;
+    border-radius: 5px;
+    padding: 5% 25%;
+    background-color: red;
+    color: #dddddd;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.gameButton {
+    border: none;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .chipCounter {
     color: yellow;
+    margin-right: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.betButton {
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 10%;
+    border-style: none;
+    border-radius: 5px;
+    background-color: yellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .pokerGame {
@@ -36,5 +91,5 @@
 }
 
 .gameItem {
-    padding-top: 16px;
+    padding-top: 8px;
 }

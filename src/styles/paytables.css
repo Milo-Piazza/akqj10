@@ -3,7 +3,10 @@
     color: yellow;
     border: 1px solid;
     border-color: yellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
     width: 72%;
+    table-layout: fixed;
     border-collapse: collapse;
 }
 
