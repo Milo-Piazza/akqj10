@@ -1,4 +1,4 @@
-const Deck = require("./Deck");
+import Deck from "./Deck";
 
 test ("Test drawing all 52 cards with no duplicates", () => {
     const deck = new Deck();

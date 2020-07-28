@@ -1,4 +1,4 @@
-module.exports = class Deck {
+class Deck {
 
     static suits = ["Spades", "Clubs", "Diamonds", "Hearts"];
     static ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"];
@@ -29,3 +29,5 @@ module.exports = class Deck {
         }
     }
 }
+
+export default Deck;

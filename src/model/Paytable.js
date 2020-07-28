@@ -1,4 +1,4 @@
-module.exports = class Paytable {
+class Paytable {
 
     static rankComparison = {
         "2": 0,
@@ -224,3 +224,5 @@ module.exports = class Paytable {
         return counts;
     }
 }
+
+export default Paytable;

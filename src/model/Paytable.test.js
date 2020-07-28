@@ -1,4 +1,4 @@
-const Paytable = require("./Paytable");
+import Paytable from "./Paytable";
 
 function getHandFromString(string) {
     //Get an unsuited hand from a string of ranks.

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Deck from '../model/Deck';
 import Paytable from '../model/Paytable';
 import PaytableView from './PaytableView';
+import Deck from "../model/Deck";
 import "../styles/pokergame.css";
 
 var cardImages = require.context("../../public/cards/", true);

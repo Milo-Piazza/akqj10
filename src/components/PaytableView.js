@@ -21,5 +21,5 @@ class PaytableView extends Component {
         </table>);
     }
 }
- 
+
 export default PaytableView;
