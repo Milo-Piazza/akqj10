@@ -21,8 +21,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 .betButtons {
