@@ -72,19 +72,18 @@ class PokerGame extends Component {
         if (this.state.gameState === "DEAL") {
             this.setState({
                 bet: 5
-            })
-            this.handleDeal();
+            }, () => this.handleDeal());
         }
     }
 
+    //TODO: make sure async state updates don't break anything
     updateHand(newCards) {
         let newHand = this.constructor.paytable.evaluateHand(newCards, this.state.bet);
-        this.setState((state) => ({
-                cards: newCards,
-                hand: newHand.name,
-                pays: newHand.pays
-            })
-        );
+        this.setState({
+            cards: newCards,
+            hand: newHand.name,
+            pays: newHand.pays
+        });
     }
 
     handleHoldChange = (i) => {
