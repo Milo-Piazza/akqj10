@@ -116,11 +116,14 @@ class PokerGame extends Component {
                     <button className={this.state.held[i] ? "heldButton" : "holdButton"} key={"button" + i.toString()} onClick={() => this.handleHoldChange(i)}>{this.state.held[i] ? "HELD" : "HOLD"}</button>
                 </div>)}
             </div>
+            <div className="handNotifier">
+                {this.state.pays > 0 ? this.state.hand + ": Pays " + this.state.pays : null}
+            </div>
             <div className="betButtons gameItem">
                 <p className="chipCounter">Chips: {this.state.chips} Bet: {this.state.bet}</p>
                 <button className="betButton" onClick={this.handleBetOne}>BET ONE</button>
                 <button className="betButton" onClick={this.handleBetMax}>BET MAX</button>
-                <button className="betButton" onClick={() => (this.state.gameState === "DEAL" ? this.handleDeal() : this.handleDraw())}>{this.state.gameState}</button>
+                <button className={this.state.gameState === "DEAL" ? "betButton" : "drawButton"} onClick={() => (this.state.gameState === "DEAL" ? this.handleDeal() : this.handleDraw())}>{this.state.gameState}</button>
             </div>
         </div>;
     }

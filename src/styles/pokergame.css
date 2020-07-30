@@ -71,6 +71,13 @@ button:hover {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.handNotifier {
+    height: 5%;
+    color: yellow;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .betButton {
     margin-left: 4px;
     margin-right: 4px;
@@ -78,6 +85,16 @@ button:hover {
     border-style: none;
     border-radius: 5px;
     background-color: yellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.drawButton {
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 10%;
+    border-style: none;
+    border-radius: 5px;
+    background-color: red;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
