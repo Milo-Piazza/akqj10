@@ -37,12 +37,12 @@ class PokerGame extends Component {
             let card = this.deck.drawCard();
             new_cards.push(card);
         }
-        this.updateHand(new_cards);
-        this.setState((state) => ({
+        this.updateHand(new_cards, () => {        
+            this.setState((state) => ({
             gameState: "DRAW",
             held: [false, false, false, false, false],
-            chips: state.chips - state.bet
-        }))
+            chips: state.chips - state.bet }))
+        });
     }
 
     handleDraw() {
@@ -53,11 +53,11 @@ class PokerGame extends Component {
                 new_cards[i] = new_card;
             }
         }
-        this.updateHand(new_cards);
-        this.setState((state) => ({
+        this.updateHand(new_cards, () => {        
+            this.setState((state) => ({
             gameState: "DEAL",
-            chips: state.chips + state.pays
-        }))
+            chips: state.chips + state.pays }))
+        });
     }
 
     handleBetOne() {
@@ -76,14 +76,13 @@ class PokerGame extends Component {
         }
     }
 
-    //TODO: make sure async state updates don't break anything
-    updateHand(newCards) {
+    updateHand(newCards, callback = () => {}) {
         let newHand = this.constructor.paytable.evaluateHand(newCards, this.state.bet);
         this.setState({
             cards: newCards,
             hand: newHand.name,
             pays: newHand.pays
-        });
+        }, callback);
     }
 
     handleHoldChange = (i) => {
