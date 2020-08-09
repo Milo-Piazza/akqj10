@@ -99,10 +99,10 @@ class PokerGame extends Component {
 
     getCardImage(i) {
         if (this.state.cards.length === 0) {
-            return <img className="card" key={"card" + i.toString()} src={cardImages("./red_back.png")}></img>
+            return <img className="card" draggable="false" key={"card" + i.toString()} src={cardImages("./red_back.png")}></img>
         }
         var card = this.state.cards[i];
-        return <img onClick={() => this.handleHoldChange(i)} className="card" key={"card" + i.toString()} src={cardImages("./" + this.getCardImageCode(card) + ".png")}></img>
+        return <img onClick={() => this.handleHoldChange(i)} className="card" draggable="false" key={"card" + i.toString()} src={cardImages("./" + this.getCardImageCode(card) + ".png")}></img>
     }
 
     render() {
