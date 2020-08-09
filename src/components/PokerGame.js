@@ -4,7 +4,7 @@ import PaytableView from './PaytableView';
 import Deck from "../model/Deck";
 import "../styles/pokergame.css";
 
-var cardImages = require.context("../../public/cards/", true);
+const cardImages = require.context("../../public/cards/", true);
 
 class PokerGame extends Component {
 
@@ -105,7 +105,7 @@ class PokerGame extends Component {
         return <img onClick={() => this.handleHoldChange(i)} className="card" key={"card" + i.toString()} src={cardImages("./" + this.getCardImageCode(card) + ".png")}></img>
     }
 
-    render() { 
+    render() {
         return <div className="pokerGame">
             <PaytableView className="paytable gameItem" hand={this.state.hand} paytable={this.constructor.paytable}></PaytableView>
             <div className="cards">
