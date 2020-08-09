@@ -95,6 +95,7 @@ button:hover {
     border-style: none;
     border-radius: 5px;
     background-color: red;
+    color: #dddddd;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
