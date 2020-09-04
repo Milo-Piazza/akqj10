@@ -4,6 +4,9 @@ var choose = (() => {
         if (n in cache && k in cache[n]) {
             return cache[n][k];
         }
+        if (k > n || k < 0) {
+            return 0;
+        }
         if (k === 0 || k === n) {
             return 1;
         }
