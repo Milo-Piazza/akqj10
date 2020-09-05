@@ -66,6 +66,7 @@ test("Test out counting for straight", () => {
     expect(calc.countOutsForStraight(getHandFromString("AKQJ9"), [true, true, true, true, false])).toBe(4);
     //Straight flush is not a straight
     expect(calc.countOutsForStraight(getSuitedHandFromString("34569"), [true, true, true, true, false])).toBe(6);
+    expect(calc.countOutsForStraight(getHandFromString("33478"), [true, true, true, true, false])).toBe(0);
 })
 
 test("Test out counting for flush", () => {

@@ -40,7 +40,7 @@ class HoldCalculator {
         var pays = this.getPays(bet);
         var numCardsHeld = hold.filter(x => x).length;
         if (numCardsHeld === 5) {
-            return this.paytable.evaluateHand(cards, bet);
+            return this.paytable.evaluateHand(cards, bet).pays;
         }
         var expectedReturn = 0;
         for (let handName in pays) {
@@ -154,7 +154,7 @@ class HoldCalculator {
         var rank;
         for (let card of heldCards) {
             rank = this.paytable.constructor.rankComparison[card.rank];
-            if (rank in heldRanks) {
+            if (heldRanks.has(rank)) {
                 //Cannot draw a straight if we hold a pair or more
                 return 0;
             }
