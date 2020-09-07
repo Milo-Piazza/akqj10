@@ -28,9 +28,10 @@
 .betButtons {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-around;
+    align-items: center;
     width: 100vw;
-    margin-right: 23%;
+    height: 15vh;
 }
 
 button {
@@ -40,6 +41,10 @@ button {
 
 button:hover {
     transform: scale(1.1);
+}
+
+.betButtons button {
+    height: 60%;
 }
 
 .holdButton {
@@ -61,8 +66,8 @@ button:hover {
 
 .gameButton {
     border: none;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
 
 .chipCounter {
@@ -74,7 +79,7 @@ button:hover {
 .handNotifier {
     height: 5%;
     color: yellow;
-    font-size: 24px;
+    font-size: 16px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -108,6 +113,26 @@ button:hover {
     background-color: blue;
 }
 
-.gameItem {
-    padding-top: 8px;
+#holdBox {
+    width: 45%;
+}
+
+.holdAdvisor {
+    background-color:#0e8c25;
+    color: #dddddd;
+    border-radius: 8px;
+    padding: 8px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.holdAdvisor p {
+    margin: 8px 0px 8px 0px;
+    font-size: 1.5vw;
+}
+
+.holdMessage span{
+    margin-left: 4px;
 }

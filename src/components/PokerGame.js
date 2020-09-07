@@ -125,12 +125,12 @@ class PokerGame extends Component {
                 {this.state.pays > 0 ? this.state.hand + ": Pays " + this.state.pays : null}
             </div>
             <div className="betButtons gameItem">
+                <HoldAdvisorModal show={this.state.gameState === "DEAL" && this.state.cards.length > 0} bet={this.state.bet} hand={this.state.prevCards} hold={this.state.held} holdCalculator={this.holdCalculator}></HoldAdvisorModal>
                 <p className="chipCounter">Chips: {this.state.chips} Bet: {this.state.bet}</p>
                 <button className="betButton" onClick={this.handleBetOne}>BET ONE</button>
                 <button className="betButton" onClick={this.handleBetMax}>BET MAX</button>
                 <button className={this.state.gameState === "DEAL" ? "betButton" : "drawButton"} onClick={() => (this.state.gameState === "DEAL" ? this.handleDeal() : this.handleDraw())}>{this.state.gameState}</button>
             </div>
-            <HoldAdvisorModal show={this.state.gameState === "DEAL" && this.state.cards.length > 0} bet={this.state.bet} hand={this.state.prevCards} hold={this.state.held} holdCalculator={this.holdCalculator}></HoldAdvisorModal>
         </div>;
     }
 }

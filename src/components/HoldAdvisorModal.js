@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../styles/holdadvisor.css";
+import "../styles/pokergame.css";
 import _ from "lodash";
 
 class HoldAdvisorModal extends Component {
@@ -38,20 +38,20 @@ class HoldAdvisorModal extends Component {
 
     render() { 
         if (!this.props.show) {
-            return null;
+            return <div id="holdBox"></div>;
         }
         let holdInfo = this.holdCalculator.getOptimalHold(this.props.hand, this.props.bet);
         let currReturn = this.holdCalculator.getExpectedReturnForHold(this.props.hand, this.props.hold, this.props.bet);
         let optimalHold = holdInfo["hold"];
         let optimalReturn = holdInfo["return"];
         if (!_.isEqual(optimalHold, this.props.hold)) {
-            return <div className="holdAdvisor">
+            return <div id="holdBox" className="holdAdvisor">
                 <p>Try this next time...</p>
                 {this.getHoldMessage(this.props.hand, this.props.hold, "Your hold:", currReturn)}
                 {this.getHoldMessage(this.props.hand, optimalHold, "Optimal hold:", optimalReturn)}
             </div>
         }
-        return null;
+        return <div id="holdBox"></div>;
     }
 }
  
