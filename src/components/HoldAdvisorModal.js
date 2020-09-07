@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "../styles/holdadvisor.css";
 import _ from "lodash";
 
 class HoldAdvisorModal extends Component {
@@ -8,7 +9,7 @@ class HoldAdvisorModal extends Component {
     }
 
     getHoldMessage(hand, hold, message, the_return=0) {
-        return <p className="holdMessage">{message} {hand.map((x, i) => {return this.getHTMLForCard(x, hold[i])})} {the_return}</p>
+        return <p className="holdMessage">{message} {hand.map((x, i) => {return this.getHTMLForCard(x, hold[i])})} {"Expected return: "}{the_return.toFixed(3)}</p>
     }
 
     getHTMLForCard(card, isHeld) {
@@ -20,7 +21,8 @@ class HoldAdvisorModal extends Component {
         }
         if (isHeld) {
             the_style['border-style'] = 'solid';
-            the_style['border-color'] = 'red';
+            the_style['border-color'] = '#dddddd';
+            the_style['border-width'] = '0px 0px 2px 0px';
         }
         return <span style={the_style}>{card.rank}{this.suitToCode(card.suit)}</span>
     }
@@ -33,7 +35,6 @@ class HoldAdvisorModal extends Component {
             "Clubs": "\u2663"
         }[suit] || "";
     }
-    //TODO: fix hold all bug
 
     render() { 
         if (!this.props.show) {
