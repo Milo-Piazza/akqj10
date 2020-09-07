@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Paytable from '../model/Paytable';
 import PaytableView from './PaytableView';
 import Deck from "../model/Deck";
+import HoldCalculator from "../model/HoldCalculator";
+import HoldAdvisorModal from './HoldAdvisorModal';
 import "../styles/pokergame.css";
 
 const cardImages = require.context("../../public/cards/", true);
@@ -13,10 +15,12 @@ class PokerGame extends Component {
     constructor(props) {
         super(props);
         this.deck = new Deck();
+        this.holdCalculator = new HoldCalculator(this.deck, this.constructor.paytable);
         this.state = {  
             gameState: "DEAL",
             hand: "Nothing",
             cards: [],
+            prevCards: [],
             held: [false, false, false, false, false],
             bet: 1,
             pays: 0,
@@ -47,6 +51,7 @@ class PokerGame extends Component {
 
     handleDraw() {
         var new_cards = this.state.cards;
+        var old_cards = this.state.cards.slice();
         for (let i = 0; i < this.state.held.length; i++) {
             if (!this.state.held[i]) {
                 var new_card = this.deck.drawCard();
@@ -55,8 +60,10 @@ class PokerGame extends Component {
         }
         this.updateHand(new_cards, () => {        
             this.setState((state) => ({
-            gameState: "DEAL",
-            chips: state.chips + state.pays }))
+                prevCards: old_cards,
+                gameState: "DEAL",
+                chips: state.chips + state.pays 
+            }))
         });
     }
 
@@ -118,6 +125,7 @@ class PokerGame extends Component {
                 {this.state.pays > 0 ? this.state.hand + ": Pays " + this.state.pays : null}
             </div>
             <div className="betButtons gameItem">
+                <HoldAdvisorModal show={this.state.gameState === "DEAL" && this.state.cards.length > 0} bet={this.state.bet} hand={this.state.prevCards} hold={this.state.held} holdCalculator={this.holdCalculator}></HoldAdvisorModal>
                 <p className="chipCounter">Chips: {this.state.chips} Bet: {this.state.bet}</p>
                 <button className="betButton" onClick={this.handleBetOne}>BET ONE</button>
                 <button className="betButton" onClick={this.handleBetMax}>BET MAX</button>

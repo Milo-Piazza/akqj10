@@ -6,6 +6,14 @@ class Deck {
     constructor() {
         this.cardCount = 52;
         this.cardIdsDrawn = new Set();
+        this.rankCount = {};
+        for (let rank of this.constructor.ranks) {
+            this.rankCount[rank] = 4;
+        }        
+        this.suitCount = {};
+        for (let suit of this.constructor.suits) {
+            this.suitCount[suit] = 13;
+        }
     }
 
     drawCard() {
