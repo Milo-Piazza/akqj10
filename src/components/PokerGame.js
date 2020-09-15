@@ -38,7 +38,7 @@ class PokerGame extends Component {
     preloadCardImages() {
         for (let i = 0; i < this.deck.cardCount; i++) {
             let card = this.deck.constructor.cardFromId(i);
-            let url = "../../public/cards/" + this.getCardImageCode(card) + ".png";
+            let url = process.env.PUBLIC_URL + "/cards/" + this.getCardImageCode(card) + ".png"
             var img = new Image();
             img.src = url;
         }
@@ -119,7 +119,7 @@ class PokerGame extends Component {
             return <img className="card" draggable="false" key={"card" + i.toString()} src={cardImages("./red_back.png")}></img>
         }
         var card = this.state.cards[i];
-        return <img onClick={() => this.handleHoldChange(i)} className="card" draggable="false" key={"card" + i.toString()} src={cardImages("./" + this.getCardImageCode(card) + ".png")}></img>
+        return <img onClick={() => this.handleHoldChange(i)} className="card" draggable="false" key={"card" + i.toString()} src={process.env.PUBLIC_URL + "/cards/" + this.getCardImageCode(card) + ".png"}></img>
     }
 
     render() {
