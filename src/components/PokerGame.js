@@ -26,12 +26,22 @@ class PokerGame extends Component {
             pays: 0,
             chips: 100
         }
+        this.preloadCardImages();
         this.handleDeal = this.handleDeal.bind(this);
         this.handleDraw = this.handleDraw.bind(this);
         this.handleBetMax = this.handleBetMax.bind(this);
         this.handleBetOne = this.handleBetOne.bind(this);
         this.updateHand = this.updateHand.bind(this);
         this.getCardImageCode = this.getCardImageCode.bind(this);
+    }
+
+    preloadCardImages() {
+        for (let i = 0; i < this.deck.cardCount; i++) {
+            let card = this.deck.constructor.cardFromId(i);
+            let url = "../../public/cards/" + this.getCardImageCode(card) + ".png";
+            var img = new Image();
+            img.src = url;
+        }
     }
 
     handleDeal() {
